@@ -3,7 +3,9 @@ import {Box, Text} from "@chakra-ui/react";
 export function Footer() {
     return (
         <Box bg={'green'}>
-            <Text>Puta</Text>
+            <marquee>
+                <Text fontWeight={'900'} color={'#fff'}>Puta</Text>
+            </marquee>
         </Box>
     )
 }

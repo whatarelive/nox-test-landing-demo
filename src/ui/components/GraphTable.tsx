@@ -20,19 +20,45 @@ ChartJS.register(
     Tooltip,
 )
 
+function generateDataGraph({ cant }: { cant: number }): number[] {
+    const data: number[] = [];
+
+    for (let i=0; i<= cant; i++) {
+        const value = Math.random() * (i + 1);
+
+        data.push(value);
+    }
+
+    return data;
+}
+
+function generateDataLabel({ years }: { years: string[] }): string[] {
+    const months =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const labels: string[] = [];
+
+
+    for (let i=0; i <= years.length - 1; i++) {
+        for (let j = 0; j <= months.length - 1; j++) {
+            labels.push(`${months[j]}-${years[i]}`);
+        }
+    }
+
+    return labels;
+}
+
 const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    labels: generateDataLabel({ years: ['2023', '2024'] }),
     datasets: [
         {
             label: 'Dataset 1',
-            data: [200, 250, 300, 350, 400, 300, 450, 500, 650, 700,  700, 600, 800, 350],
-            borderColor: 'rgb(59, 130, 246)',
+            data: generateDataGraph({ cant: 24 }),
+            borderColor: '#6366F1',
             backgroundColor: 'transparent',
         },
         {
             label: 'Dataset 2',
-            data: [300, 200, 500, 400, 700, 600, 800, 350, 400, 300, 450, 500, 650, 900],
-            borderColor: 'rgb(14, 165, 233)',
+            data: generateDataGraph({ cant: 24 }),
+            borderColor: '#A5B4FC',
             backgroundColor: 'transparent',
         },
     ],
@@ -40,13 +66,14 @@ const data = {
 
 export function GraphTable() {
     // Uso de useBreakpointValue para ajustar el tamaño del gráfico según el breakpoint
-    const chartHeight = useBreakpointValue({ base: '200px', md: '300px', lg: '400px' })
-    const chartWidth = useBreakpointValue({ base: '400px', md: '600px', lg: '800px' })
+    const chartHeight = useBreakpointValue({ base: '200px', md: '300px', lg: '277px' })
+    const chartWidth = useBreakpointValue({ base: '400px', md: '600px', lg: '608px' })
 
     return (
-        <Box width={chartWidth} height={chartHeight} mb={6}>
+        <Box minWidth={chartWidth} height={chartHeight}>
             <Line data={data} options={{
                 responsive: true,
+
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
@@ -67,6 +94,7 @@ export function GraphTable() {
                 },
                 elements: {
                     line: {
+                        spanGaps: 10,
                         tension: 0,
                     },
                     point: {
