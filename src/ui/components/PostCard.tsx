@@ -8,7 +8,7 @@ interface Props {
 
 export function PostCard({ post }: Props) {
     return (
-        <VStack w={'385px'} bg={'#334155'} alignSelf={'center'} borderRadius={'20px'} p={'32px'} gap={'16px'} align={'start'}>
+        <VStack w={'384px'} bg={'#334155'} alignSelf={'center'} borderRadius={'20px'} p={'32px'} gap={'16px'} align={'start'}>
             <Stack py={'16px'}>
                 <ChakraImage src={ post.user.company.logoUrl } alt={'Icon'} opacity={'50%'} w={'auto'} h={'auto'} />
             </Stack>
@@ -19,7 +19,7 @@ export function PostCard({ post }: Props) {
                 lineHeight: '38.4px',
                 color: '#ffffff'
             }}>
-                { post.body }
+                { post.body.length > 150 ? post.body.substring(0, 150) : post.body }
             </Text>
 
             <HStack pt={'16px'} gap={'16px'}>

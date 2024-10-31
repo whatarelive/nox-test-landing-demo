@@ -141,7 +141,7 @@ export default function Home() {
         <PostsView />
 
         {/* Descriptions View, this contains two buttons */}
-        <DescriptionView>
+        <DescriptionView pb={'160px'}>
             <ButtonGroup gap={'16px'}>
                 <ButtonNav
                     label={'Start for free'}

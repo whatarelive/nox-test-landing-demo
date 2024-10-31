@@ -25,9 +25,9 @@ const options = {
     },
     centeredSlides: true,
     allowTouchMove: true,
-    spaceBetween: 100,
+    spaceBetween: '24px',
     loop: true,
-    speed: 2000,
+    speed: 3000,
     autoplay: {
         delay: 0,
         pauseOnMouseEnter: true,
@@ -66,18 +66,11 @@ export function PostsCarousel({ posts }: Props) {
     }, [posts.length])
 
     return (
-        <VStack maxW="100vw" h={'800px'} justifyContent={'space-around'}>
+        <VStack maxW="100vw" h={'586px'} justifyContent={'space-around'}>
             <Swiper onSwiper={(swiper) => swiperRef.current = swiper} {...options}>
                 {
                     posts.map((post, index) => (
-                        <SwiperSlide
-                            key={ index }
-                            style={{
-                                minWidth: '375px',
-                                display: "flex",
-                                alignSelf: "center",
-                            }}
-                        >
+                        <SwiperSlide key={index} className={'swipers-slider'}>
                             <PostCard post={post}/>
                         </SwiperSlide>
                     ))

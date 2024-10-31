@@ -3,13 +3,15 @@ import {Heading, Text, VStack} from "@chakra-ui/react";
 
 interface Props {
     readonly children?: React.ReactNode;
+    pb?: string | number;
 }
 
-export function DescriptionView({ children }: Props) {
+export function DescriptionView({ children, pb }: Props) {
     return (
         <VStack as={'section'} sx={{
             p: '80px',
             gap: '80px',
+            pb: pb
         }}>
             <VStack as={'article'} gap={'32px'}>
                 <VStack gap={'8px'}>
