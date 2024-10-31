@@ -1,0 +1,16 @@
+.swipers {
+    width: 100vw;
+    height: 650px;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+/*.swipers-slide:nth-child(2n) {*/
+/*  width: 40%;*/
+/*}*/
+
+/*.swipers-slide:nth-child(3n) {*/
+/*  width: 20%;*/
+/*}*/

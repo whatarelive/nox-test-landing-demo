@@ -1,66 +1,44 @@
-'use client';
-
-import { useEffect, useState} from 'react'
-import { VStack } from '@chakra-ui/react'
-import { PostCard } from "@/ui/components";
-import { ParsePost } from "@/lib/interfaces/definitions";
+import { Heading, Text, VStack } from '@chakra-ui/react'
+import { PostsCarousel } from "@/ui/components";
 import { getPosts } from "@/lib/actions/actions";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay, EffectCards } from "swiper/modules";
+import { ParsePost } from "@/lib/interfaces/definitions";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cards';
-import '@/ui/styles/globals.css'
-
-const options = {
-    slidesPerView:4,
-    navigation: false,
-    pagination: {
-        clickable: true,
-    },
-    centeredSlides: true,
-    allowTouchMove: true,
-    spaceBetween: 100,
-    loop: true,
-    speed: 2000,
-    autoplay: {
-        delay: 0,
-        pauseOnMouseEnter: true,
-    },
-    modules:[Pagination, Navigation, Autoplay, EffectCards],
-    className:"swipers",
-}
-
-interface Props {
-    posts?: ParsePost[]
-}
-
-export function PostsView({ }: Props) {
-    const [data, setData] = useState<ParsePost[]>([]);
-    
-    useEffect(() => {
-        getPosts().then((d) => setData(d))
-    }, [])
+export async function PostsView() {
+    const posts: ParsePost[] = await getPosts();
 
     return (
-        <VStack maxW="100vw" h={'800px'} justifyContent={'space-around'}>
-            <Swiper {...options}>
-                {
-                    data.map((post) => (
-                        <SwiperSlide
-                            key={ post.id }
-                            style={{
-                                minWidth: '375px',
-                                display: "flex",
-                                alignSelf: "center",
-                            }}
-                        >
-                            <PostCard post={post}/>
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
+        <VStack as={'section'} gap={'80px'} py={'80px'} justifyContent={'center'}>
+            <VStack>
+                <VStack gap={'24px'}>
+                    <Heading as={'h2'} sx={{
+                        fontSize: '56px',
+                        fontWeight: '900',
+                        lineHeight: '61.6px',
+                        color: '#ffffff'
+                    }}>
+                        Our partners. Our Friends.
+                    </Heading>
+                    <Heading as={'h2'} sx={{
+                        fontSize: '56px',
+                        fontWeight: '900',
+                        lineHeight: '61.6px',
+                        color: '#818CF8'
+                    }}>
+                        They love us.
+                    </Heading>
+                </VStack>
+
+                <Text sx={{
+                    fontSize: '18px',
+                    fontWeight: '400',
+                    lineHeight: '28.8px',
+                    color: '#CBD5E1'
+                }}>
+                    Sem malesuada sed lectus id nunc mattis est eget tincidunt.
+                </Text>
+            </VStack>
+
+            <PostsCarousel posts={posts}/>
         </VStack>
     )
 }
