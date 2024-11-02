@@ -1,9 +1,9 @@
-import { VStack, Stack, Text, ButtonGroup } from "@chakra-ui/react";
+import {VStack, Stack, Text, ButtonGroup, Box} from "@chakra-ui/react";
 import { ButtonNav, ChakraImageSSR } from "@/ui/components";
 
 export function HomeView() {
     return (
-        <VStack as={'section'} mt={'75px'} align={'center'}>
+        <Box as={'section'} mt={'75px'} flexDirection={'column'}>
             <Stack as={'article'} gap={'32px'}>
                 <VStack>
                     <Text as={'span'}>
@@ -28,10 +28,9 @@ export function HomeView() {
             <ChakraImageSSR 
                 alt={"Shape svg"}
                 src={'/svg/shapes.svg'}
-                mt={{ base: '48px', md: '80px' }} 
                 width={{ base: '240px', md: '284px' }} 
                 height={{ base: '240px', md: '284px' }}
             />
-        </VStack>
+        </Box>
     )
 }

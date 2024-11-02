@@ -1,24 +1,23 @@
 import { extendTheme, ThemeConfig, defineStyle, defineStyleConfig } from "@chakra-ui/react";
 
+// Heading Styles
 const h4v1 = defineStyle({
-    fontSize: { base: '17px', md: '24px' },
+    fontSize: { base: '18px', md: '24px' },
     fontWeight: { base: '500', md: '700' },
     lineHeight: { base: '19.8px', md: '26.4px' },
-    color: 'primary.gray'
+    color: '#CBD5E1'
 })
-
 const h4v2 = defineStyle({
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '17.6px',
     color: 'primary.white'
 })
-
-// Heading Styles
 const headingTheme = defineStyleConfig({
     variants: { h4v1, h4v2 }
 })
-
+//---------------------------------------------
+// Links Styles
 const linkv1 = defineStyle({
     fontSize: '16px',
     fontWeight: '500',
@@ -26,10 +25,11 @@ const linkv1 = defineStyle({
     letterSpacing: '0.5px',
     color: 'white'
 })
-
 const linkTheme = defineStyleConfig({
     variants: { linkv1 }
 })
+//---------------------------------------------
+// Stack Styles
 
 export const theme: ThemeConfig = extendTheme({
     colors: {
@@ -65,6 +65,9 @@ export const theme: ThemeConfig = extendTheme({
                 py: { base: '48px', md: '80px' },
                 px: { base: '16px', md: '80px' },
                 gap: { base: '32px', md: '80px' },
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection:{ base: 'column', md: 'row' },
             },
             article: {
                 justifyContent: 'center',
@@ -78,9 +81,10 @@ export const theme: ThemeConfig = extendTheme({
                 color: '#ffffff'   
             },
             h2: {
-                fontSize: '56px',
-                fontWeight: '900',
-                lineHeight: '61.6px',
+                fontSize: { base: '24px', md:'56px' },
+                fontWeight: { base: '700', md:'900' },
+                lineHeight: { base:'26.4px', md:'61.6px'},
+                color: 'primary.white'
             },
             'h3, h6': {
                 fontSize: { base: '24px', md: '48px' },
@@ -118,7 +122,7 @@ export const theme: ThemeConfig = extendTheme({
         }
     },
     components: {
-        Heading: headingTheme,
-        Link: linkTheme
+        Text: headingTheme,
+        Link: linkTheme,
     }
 });

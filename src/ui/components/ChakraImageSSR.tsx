@@ -4,8 +4,8 @@ import { BoxProps, Box } from '@chakra-ui/react';
 interface Props extends BoxProps {
     src: string;
     alt: string;
-    width: { base: string|number, md: string|number };
-    height: { base: string|number, md: string|number };
+    width: { base: string | number, md: string | number } | string | number;
+    height: { base: string | number, md: string | number } | string | number;
 }
 
 export const ChakraImageSSR = ({ src, alt, width, height, ...rest }: Props) => {

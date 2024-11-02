@@ -1,16 +1,18 @@
-import React from "react";
-import { CompaniesView, HomeView } from "@/ui/views/landing/home";
+import {
+    HomeView, CompaniesView, DescriptionView,
+    TeamDescriptionView, DesktopPresentationView,
+    // PowerfulToolsView,
+} from "@/ui/views/landing/home";
 
 export default function Home() {
   return (
     <>
         <HomeView/>
         <CompaniesView/>
-        {/* 
         <DescriptionView/>
         <TeamDescriptionView/>
         <DesktopPresentationView/>
-        <PowerfulToolsView/> */}
+        {/*<PowerfulToolsView/>*/}
 
         {/* */}
         {/* <TeamManagementView/> */}

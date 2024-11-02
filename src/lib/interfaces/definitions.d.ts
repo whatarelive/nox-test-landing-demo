@@ -10,6 +10,14 @@ export interface Article {
     listCheck?: string[];
 }
 
+export interface FooterLink {
+    readonly name: string;
+    readonly links: string[];
+    readonly badge?: 'Accessibility'
+    readonly icon?: 'Request Demo'
+}
+
+
 export interface Post {
     userId: number;
     id: number;

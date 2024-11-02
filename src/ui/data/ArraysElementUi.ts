@@ -1,11 +1,8 @@
-interface Props {
-    readonly name: string;
-    readonly links: string[];
-    readonly badge?: 'Accessibility'
-    readonly icon?: 'Request Demo'
-}
+import { FooterLink } from "@/lib/interfaces/definitions";
 
-export const footerLinks: Props[] = [
+export const companiesSvgs: string[] = ['Smart', 'Zoomer', 'Shells', 'Waves', 'ArtVenue'];
+
+export const footerLinks: FooterLink[] = [
     {
         name: 'Categories',
         links: ['User Interface', 'User Experience', 'Digital Media', 'LifeStyle']

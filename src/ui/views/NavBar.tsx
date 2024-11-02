@@ -1,4 +1,3 @@
-import React from "react";
 import { ButtonGroup, HStack, Text} from "@chakra-ui/react";
 import { ButtonNav, ButtonDrawer } from "@/ui/components";
 import { ChakraLinkNav } from "../components/ChakraLinkNav";
@@ -16,7 +15,7 @@ export function NavBar() {
             <HStack as={'nav'} display={{ base: 'none', md: 'flex' }}>
                 {
                     routes.map(({ name, href }) => (
-                        <ChakraLinkNav name={name} href={href}/>
+                        <ChakraLinkNav key={name} name={name} href={href}/>
                     ))
                 }
             </HStack>
