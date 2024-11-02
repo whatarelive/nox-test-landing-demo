@@ -16,15 +16,20 @@ export function ButtonNav({ label, href, ...props }: Props) {
 
     return (
         <Button
-            size={'md'}
-            {...props}
-            borderRadius={'8px'}
+            size={'lg'}
+            variant={'filled'}
+            sx={{
+                borderRadius: '8px',
+                transition: 'all 0.2s',
+            }}
             _hover={{
-                transform: 'translateY(-1px)',
+                transform: 'translateY(-1.5px)',
                 boxShadow: 'md'
             }}
-            transition={'all 0.2s'}
+            w={{ base:'172.5px', md:'256px' }}
+            color={'primary.white'}
             onClick={ handleClick }
+            {...props}
         >
             { label }
         </Button>

@@ -7,33 +7,18 @@ export async function PostsView() {
     const posts: ParsePost[] = await getPosts();
 
     return (
-        <VStack as={'section'} gap={'80px'} py={'80px'} justifyContent={'center'}>
-            <VStack>
-                <VStack gap={'24px'}>
-                    <Heading as={'h2'} sx={{
-                        fontSize: '56px',
-                        fontWeight: '900',
-                        lineHeight: '61.6px',
-                        color: '#ffffff'
-                    }}>
+        <VStack as={'section'} gap={{ base:'32px', lg:'80px' }} py={{ base:'48px', lg:'80px' }} justifyContent={'center'}>
+            <VStack gap={{ base:'32px', lg:'24px' }}>
+                <VStack>
+                    <Heading as={'h2'} variant={'HThree'}>
                         Our partners. Our Friends.
                     </Heading>
-                    <Heading as={'h2'} sx={{
-                        fontSize: '56px',
-                        fontWeight: '900',
-                        lineHeight: '61.6px',
-                        color: '#818CF8'
-                    }}>
+                    <Heading as={'h2'} variant={'HThree'} color={'#818CF8'}>
                         They love us.
                     </Heading>
                 </VStack>
 
-                <Text sx={{
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    lineHeight: '28.8px',
-                    color: '#CBD5E1'
-                }}>
+                <Text variant={'TextParagrah'} textAlign={{ base:'center' }}>
                     Sem malesuada sed lectus id nunc mattis est eget tincidunt.
                 </Text>
             </VStack>

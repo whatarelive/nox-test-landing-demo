@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { VStack } from '@chakra-ui/react';
 import { PostCard } from "@/ui/components";
@@ -18,7 +18,7 @@ import '@/ui/styles/swiperCarousel.css'
 // The config of Swiper Component
 const options = {
     initialSlide: 0,
-    slidesPerView:4,
+    // slidesPerView: 4,
     navigation: false,
     pagination: {
         clickable: true,
@@ -43,6 +43,18 @@ interface Props {
 
 export function PostsCarousel({ posts }: Props) {
     const swiperRef = useRef<SwiperType | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
+    const [elementsView, setElementsView] = useState(4);
+
+    useEffect(() => {
+        const width = containerRef.current?.clientWidth;
+
+        if (width === 395) {
+            setElementsView(1);
+        } else if(width && width > 396) {
+            setElementsView(4);
+        }
+    }, [containerRef.current?.clientWidth]);
 
     useEffect(() => {
         if (swiperRef.current) {
@@ -66,8 +78,8 @@ export function PostsCarousel({ posts }: Props) {
     }, [posts.length])
 
     return (
-        <VStack maxW="100vw" h={'586px'} justifyContent={'space-around'}>
-            <Swiper onSwiper={(swiper) => swiperRef.current = swiper} {...options}>
+        <VStack ref={containerRef} maxW={{base: '395px', md: "100vw"}} h={'586px'} justifyContent={'space-around'}>
+            <Swiper slidesPerView={elementsView} onSwiper={(swiper) => swiperRef.current = swiper} {...options}>
                 {
                     posts.map((post, index) => (
                         <SwiperSlide key={index} className={'swipers-slider'}>

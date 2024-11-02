@@ -6,18 +6,19 @@ export function DesktopPresentationView() {
         <VStack as={'section'}>
             <VStack sx={{
                 zIndex: '0',
-                px: '80px',
-                pt: '80px',
-                pb: { md:'240px', lg: '387px' },
+                px: { base:'16px', lg:'80px' },
+                pt: { base:'48px', lg:'80px' },
+                pb: { base: '120px', md:'240px', lg: '387px' },
                 minW: '100vw',
                 bg: '#4F46E5',
                 pos: 'absolute'
             }}>
                 <Heading as={'h3'} sx={{
                     zIndex:'1',
-                    fontSize: '48px',
-                    fontWeight: '800',
-                    lineHeight: '52.8px',
+                    fontSize: { base:'24px', lg: '48px' },
+                    fontWeight: { base:'700', lg:'900' },
+                    lineHeight: { base:'26.6px', lg:'52.8px' },
+                    px:{ base:'10px', lg:'0px' },
                     textAlign: 'center',
                     color: '#ffffff'
                 }}>
@@ -29,8 +30,8 @@ export function DesktopPresentationView() {
             </VStack>
             <Stack sx={{
                 zIndex: '1',
-                mt: '185px',
-                p: '80px',
+                mt: { base:'150px', lg:'185px' },
+                p: { base:'16px', lg:'80px' },
             }}>
                 <Image
                     src={'/img/Desktop.png'}

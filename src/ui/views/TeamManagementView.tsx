@@ -17,8 +17,9 @@ const article: Article = {
 export function TeamManagementView() {
     return (
         <Stack as={'section'} direction={{ base: 'column', md: 'row' }} sx={{
-            p:'80px',
-            gap:'80px',
+            gap: { base: '48px', lg:'80px' },
+            px: { base:'16px', lg:'80px' },
+            py: { base:'48px', lg:'80px' },
             justifyContent: 'center',
             alignItems: 'center',
         }}>

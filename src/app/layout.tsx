@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Props) {
                   </GridItem>
 
                   <GridItem as={'footer'} area={'footer'}>
-                      <Footer/>
+                      {/*<Footer/>*/}
                   </GridItem>
               </Grid>
           </ChakraUiProvider>
