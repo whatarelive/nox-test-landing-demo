@@ -32,7 +32,7 @@ export default function Home() {
 
             <ChakraImageSSR
                 alt={"Shape svg"}
-                src={'/svg/shapes.svg'}
+                src={'/svg/Shapes.svg'}
                 width={{ base: '240px', md: '284px' }}
                 height={{ base: '240px', md: '284px' }}
             />
