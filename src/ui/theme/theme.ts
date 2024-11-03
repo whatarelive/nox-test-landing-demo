@@ -2,9 +2,9 @@ import { extendTheme, ThemeConfig, defineStyle, defineStyleConfig } from "@chakr
 
 // Heading Styles
 const h4v1 = defineStyle({
-    fontSize: { base: '18px', xl: '24px' },
-    fontWeight: { base: '500', xl: '700' },
-    lineHeight: { base: '19.8px', xl: '26.4px' },
+    fontSize: { base: '18px', md:'20px', xl: '24px' },
+    fontWeight: { base: '500', md: '700' },
+    lineHeight: { base: '19.8px', md:'23.2px', xl: '26.4px' },
     color: '#CBD5E1'
 })
 const h4v2 = defineStyle({
@@ -85,7 +85,7 @@ export const theme: ThemeConfig = extendTheme({
             section: {
                 py: { base: '48px', xl: '80px' },
                 px: { base: '16px', xl: '80px' },
-                gap: { base: '32px', xl: '80px' },
+                gap: { base: '32px', md:'48px', xl: '80px' },
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection:{ base: 'column', xl:'row' },
@@ -102,15 +102,15 @@ export const theme: ThemeConfig = extendTheme({
                 color: '#ffffff'   
             },
             h2: {
-                fontSize: { base: '24px', xl:'56px' },
-                fontWeight: { base: '700', xl:'900' },
-                lineHeight: { base:'26.4px', xl:'61.6px'},
+                fontSize: { base: '24px', md:'42px', xl:'56px' },
+                fontWeight: { base: '700', lg:'900' },
+                lineHeight: { base:'26.4px', md:'36.4px', lg:'46.4px',  xl:'61.6px'},
                 color: 'primary.white'
             },
             'h3, h6': {
-                fontSize: { base: '24px', xl: '48px' },
+                fontSize: { base: '24px', md: '36px', xl: '48px' },
                 fontWeight: { base: '700', xl: '900' },
-                lineHeight: { base: '26.4px', xl: '52.8px' },
+                lineHeight: { base: '26.4px', md: '38.5px', xl: '52.8px' },
                 color: 'primary.white'  
             },
             h5: {
@@ -120,9 +120,9 @@ export const theme: ThemeConfig = extendTheme({
                 color: 'primary.white'    
             },
             p: {
-                fontSize: { base: '16px', xl: '18px' },
+                fontSize: { base: '16px', lg: '18px' },
                 fontWeight: '400',
-                lineHeight: { base: '22.4px', xl: '28.8px' },
+                lineHeight: { base: '22.4px', lg: '28.8px' },
                 color: 'primary.gray'       
             },
             a: {
@@ -138,7 +138,7 @@ export const theme: ThemeConfig = extendTheme({
                 color: 'primary.indigo'
             },
             br: {
-                display: { xl: 'none' }
+                display: { lg: 'none' }
             }
         }
     },

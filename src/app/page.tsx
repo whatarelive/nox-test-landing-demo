@@ -44,8 +44,8 @@ export default function Home() {
         {/*<TeamDescriptionView/>*/}
         <Box as={'section'} justifyContent={'center'}>
             <VStack as={'article'} gap={'32px'}>
-                <VStack gap={'8px'} alignItems={{ base:'center', md:'start' }}
-                        alignSelf={{ base:'center', md:'start' }}>
+                <VStack gap={'8px'} alignItems={{ base:'center', xl:'start' }}
+                        alignSelf={{ base:'center', xl:'start' }}>
 
                     <Text as={'h6'}>
                         Bigger team.
@@ -57,21 +57,21 @@ export default function Home() {
 
                 </VStack>
 
-                <Text maxInlineSize={'600'} display={{ base: 'none', lg:'block' }}>
+                <Text maxInlineSize={'600'} display={{ base: 'none', md:'block' }}>
                     Quam quis orci turpis vulputate platea. Urna ipsum suscipit nullam
                     ipsum nam leo fringilla eget lorem. Sit vestibulum phasellus integer
                     et et diam malesuada. Sed tortor orci mauris proin ac. Venenatis
                     euismod mauris quis sit purus nisi. Sed quis eget augue ut aliquam sed.
                 </Text>
 
-                <Text textAlign={'center'} display={{ base: 'block', lg:'none' }}>
+                <Text textAlign={'center'} display={{ base: 'block', md:'none' }}>
                     Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.
                 </Text>
             </VStack>
 
             <VStack gap={{ base:'16px', lg:'24px' }}>
                 {/* All Components Image */}
-                <HStack pl={{ md:'48px' }} gap={{ base:'16px', lg:'24px' }}>
+                <HStack pl={{ xl:'48px' }} gap={{ base:'16px', lg:'24px' }}>
                     <ChakraImageSSR
                         src={'/svg/TeamSvg1.svg'}
                         alt={'Image Team 1'}
@@ -85,7 +85,7 @@ export default function Home() {
                         height={{ base:112, md:192 }}
                     />
                 </HStack>
-                <HStack pr={{ md:'48px' }}  gap={{ base:'16px', md:'24px'}}>
+                <HStack pr={{ xl:'48px' }}  gap={{ base:'16px', md:'24px'}}>
                     <ChakraImageSSR
                         src={'/svg/TeamSvg2.svg'}
                         alt={'Image Team 3'}
@@ -106,7 +106,7 @@ export default function Home() {
         <Box as={'section'} flexDirection={'column'}>
             <VStack sx={{
                 pt: { base:'48px', lg:'80px' },
-                pb: { base: '90px', md:'240px', lg: '387px' },
+                pb: { base: '90px', md:'240px', lg:'270px', xl: '387px' },
                 left: '0px',
                 w: '100vw',
                 pos: 'absolute',
@@ -118,14 +118,14 @@ export default function Home() {
                 </Text>
             </VStack>
 
-            <Stack alignSelf={'center'} zIndex={'1'} mt={{ base:'160px', md:'265px' }}>
+            <Stack alignSelf={'center'} zIndex={'1'} mt={{ base:'160px', md:'220px', xl:'265px' }}>
                 {/* Desktop View */}
                 <ChakraImageSSR
-                    display={{ base: 'none', md: 'flex' }}
+                    display={{ base: 'none', md:'flex' }}
                     src={'/img/Desktop.png'}
                     alt={'Desktop Image'}
-                    width={1280}
-                    height={838}
+                    width={{ md:700, lg:980, xl: 1280 }}
+                    height={{ md:450, lg:550, xl:838 }}
                 />
 
                 {/* Mobil View */}
@@ -146,8 +146,8 @@ export default function Home() {
                     <ChakraImageSSR
                         src={'/svg/ToolsSvg1.svg'}
                         alt={'Team Image 4'}
-                        width={{ base: 275, md: 425 }}
-                        height={{ base: 183, md: 288 }}
+                        width={{ base: 275, md: 330, xl: 425 }}
+                        height={{ base: 183, md: 220, xl: 288 }}
                     />
                 </Stack>
 
@@ -155,14 +155,14 @@ export default function Home() {
                     <ChakraImageSSR
                         src={'/svg/ToolsSvg2.svg'}
                         alt={'Team Image 2'}
-                        width={{ base: 172, md: 288 }}
-                        height={{ base: 172, md: 288 }}
+                        width={{ base: 172, md: 200, xl: 288 }}
+                        height={{ base: 172, md: 200, xl: 288 }}
                     />
                     <ChakraImageSSR
                         src={'/img/ToolsSvg3.png'}
                         alt={'Team Image 3'}
-                        width={{ base: 172, md: 288 }}
-                        height={{ base: 172, md: 288 }}
+                        width={{ base: 172, md: 200, xl: 288 }}
+                        height={{ base: 172, md: 200, xl: 288 }}
                     />
                 </HStack>
             </VStack>
@@ -171,15 +171,15 @@ export default function Home() {
         </Box>
 
         {/*<TeamManagementView/>*/}
-        <Box as={'section'} justifyContent={'center'}>
+        <Box as={'section'} flexDirection={{ base: 'column', md: 'row' }} justifyContent={'center'}>
             <ArticleInfo article={ articleManagement }/>
 
             <Stack p={'0px'}>
                 <ChakraImageSSR
                     src={'/svg/TeamManagement.svg'}
                     alt={'Image'}
-                    width={{ base:'360px', lg:'590px' }}
-                    height={{ base:'342px', lg:'555px' }}
+                    width={{ base:'360px', md:'440px', xl:'590px' }}
+                    height={{ base:'342px', md:'420px', xl:'555px' }}
                 />
             </Stack>
         </Box>
@@ -223,7 +223,9 @@ export default function Home() {
 
          {/*Control Flow View*/}
         <Box as={'section'} bg={'#1E293B'} sx={{
+             flexDirection: { base: 'column', md: 'row' },
              justifyContent:{ md:'end', '2xl':'center' },
+             pl:{ md:'16px' },
              px:{ base:'0px', '2xl': '80px' },
              pb:'0px',
         }}>
@@ -232,8 +234,8 @@ export default function Home() {
             <ChakraImageSSR
                 src={'/svg/ControlFlow.svg'}
                 alt={'Control Image'}
-                width={{ base: '388px', lg: '680px' }}
-                height={{ base: '266px', lg: '480px' }}
+                width={{ base: '388px', md:'680px', xl: '680px' }}
+                height={{ base: '266px', md:'380px', xl: '480px' }}
             />
         </Box>
 
