@@ -19,15 +19,16 @@ export function ButtonNav({ label, href, ...props }: Props) {
             size={'lg'}
             variant={'filled'}
             sx={{
+                fontWeight: '400',
                 borderRadius: '8px',
                 transition: 'all 0.2s',
+                color: 'primary.white'
             }}
             _hover={{
                 transform: 'translateY(-1.5px)',
                 boxShadow: 'md'
             }}
             w={{ base:'172.5px', md:'256px' }}
-            color={'primary.white'}
             onClick={ handleClick }
             {...props}
         >

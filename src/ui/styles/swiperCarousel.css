@@ -1,6 +1,6 @@
 .swipers {
     width: 100vw;
-    height: 580px;
+    height: max-content;
     padding: 50px 0;
     display: flex;
     align-items: center;
@@ -11,7 +11,9 @@
     min-width: 384px;
     display: flex;
     align-self: center;
+    justify-content: center;
 }
+
 
 /*.swipers-slide:nth-child(2n) {*/
 /*  width: 40%;*/

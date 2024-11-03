@@ -15,7 +15,7 @@ export function NavBar() {
             <HStack as={'nav'} display={{ base: 'none', md: 'flex' }}>
                 {
                     routes.map(({ name, href }) => (
-                        <ChakraLinkNav key={name} name={name} href={href}/>
+                        <ChakraLinkNav key={name} name={name} href={href} variant={'linkv1'}/>
                     ))
                 }
             </HStack>

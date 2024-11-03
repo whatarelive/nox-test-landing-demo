@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { BoxProps, Box } from '@chakra-ui/react';
+import { MediaSizes } from "@/lib/interfaces/definitions";
 
 interface Props extends BoxProps {
     src: string;
     alt: string;
-    width: { base: string | number, md: string | number } | string | number;
-    height: { base: string | number, md: string | number } | string | number;
+    width: MediaSizes | string | number;
+    height: MediaSizes | string | number;
 }
 
 export const ChakraImageSSR = ({ src, alt, width, height, ...rest }: Props) => {

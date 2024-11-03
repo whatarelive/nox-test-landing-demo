@@ -1,25 +1,19 @@
 'use client';
 
 import { useRef } from "react";
-import Link from "next/link";
 import {
-    IconButton,
-    useDisclosure,
-    Drawer,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    DrawerBody, VStack,
-    Link as ChakraLink, DrawerHeader
+    IconButton, useDisclosure, Drawer,
+    DrawerOverlay, DrawerContent,
+    DrawerCloseButton, DrawerBody,
+    VStack, DrawerHeader
 } from "@chakra-ui/react";
+import { ChakraLinkNav } from "@/ui/components/ChakraLinkNav";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { routes } from "@/ui/routes/routes";
-import React from "react";
 
 export function ButtonDrawer() {
     // This custom hook manages the operation of the Drawer
     const { isOpen, onOpen, onClose } = useDisclosure();
-
     // Stores the reference to the button that opens the Drawer
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -46,37 +40,16 @@ export function ButtonDrawer() {
             />
 
             {/* Drawer Component for mobile view */}
-            <Drawer
-                isOpen={isOpen}
-                placement='right'
-                onClose={onClose}
-                finalFocusRef={buttonRef}
-            >
+            <Drawer placement='right' isOpen={isOpen} onClose={onClose} finalFocusRef={buttonRef}>
                 <DrawerOverlay />
                 <DrawerContent bg={'#334155'}>
-                    <DrawerCloseButton />
+                    <DrawerCloseButton color={'#ffffff'}/>
                     <DrawerHeader/>
                     <DrawerBody>
-                        <VStack sx={{
-                            h: 'full',
-                            gap: '24px',
-                            justifyContent: 'center'
-                        }}>
+                        <VStack h={'full'} align={'center'} justify={'center'}>
                             {
-                                routes.map((route) => (
-                                    <ChakraLink
-                                        key={route.name}
-                                        as={Link}
-                                        href={route.href}
-                                        sx={{
-                                            fontSize: '20px',
-                                            fontWeight: '700',
-                                            lineHeight: '26.6px',
-                                            color: '#ffffff'
-                                        }}
-                                    >
-                                        {route.name}
-                                    </ChakraLink>
+                                routes.map(({name, href}) => (
+                                    <ChakraLinkNav key={name} href={href} name={name} variant={'linkv1'}/>
                                 ))
                             }
                         </VStack>

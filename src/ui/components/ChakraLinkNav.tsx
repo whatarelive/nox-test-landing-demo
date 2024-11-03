@@ -1,16 +1,21 @@
+import React from "react";
 import Link from "next/link";
 import { Box, Link as ChakraLink } from '@chakra-ui/react';
 
 interface Props {
     href: string;
-    name: string;
+    name?: string;
+    target?: string;
+    children?: React.ReactNode;
+    variant?: string
 }
 
-export function ChakraLinkNav({ href, name }: Props) {
+export function ChakraLinkNav({ href, name, children, target, variant }: Props) {
   return (
-    <Box py={'12px'} px={'8px'} gap={'8px'}>
-        <ChakraLink as={ Link } href={ href } variant={'linkv1'}>
+    <Box py={'12px'}>
+        <ChakraLink as={ Link } href={ href } variant={variant} target={target}>
             { name }
+            { children }
         </ChakraLink>
     </Box>
   )

@@ -1,171 +1,258 @@
-import {
-    HomeView, CompaniesView, DescriptionView,
-    TeamDescriptionView, DesktopPresentationView,
-    // PowerfulToolsView,
-} from "@/ui/views/landing/home";
+import { Box, Text, Stack, VStack, ButtonGroup, HStack } from "@chakra-ui/react";
+import { ArticleInfo, ButtonNav, ChakraImageSSR, GraphTable } from "@/ui/components";
+import { CompaniesView, DescriptionView, PostsView } from "@/ui/views/landing/home";
+
+import { articleControl, articleManagement, articleTools } from "@/ui/data/ArraysElementUi";
 
 export default function Home() {
   return (
     <>
-        <HomeView/>
+        {/* Home View */}
+        <Box as={'section'} mt={'75px'} flexDirection={'column'}>
+            <Stack as={'article'} gap={'32px'}>
+                <VStack>
+                    <Text as={'span'}>
+                        Team Progress Tracking Tool
+                    </Text>
+                    <Text as={'h1'}>
+                        Track your team progress
+                    </Text>
+                </VStack>
+
+                <Text maxInlineSize={'630'} textAlign={'center'}>
+                    Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. <br/>
+                    Ultrices faucibus neque velit risus ac id lorem.
+                </Text>
+
+                <ButtonGroup gap={'16px'}>
+                    <ButtonNav label={'Start for free'} href={'/start'} bg={'#4F46E5'} border={'1px solid #6366F1'}/>
+                    <ButtonNav label={'Request more info'} href={'/info'} bg={'#334155'} border={'1px solid #475569'}/>
+                </ButtonGroup>
+            </Stack>
+
+            <ChakraImageSSR
+                alt={"Shape svg"}
+                src={'/svg/shapes.svg'}
+                width={{ base: '240px', md: '284px' }}
+                height={{ base: '240px', md: '284px' }}
+            />
+        </Box>
+
         <CompaniesView/>
         <DescriptionView/>
-        <TeamDescriptionView/>
-        <DesktopPresentationView/>
-        {/*<PowerfulToolsView/>*/}
 
-        {/* */}
-        {/* <TeamManagementView/> */}
+        {/*<TeamDescriptionView/>*/}
+        <Box as={'section'} justifyContent={'center'}>
+            <VStack as={'article'} gap={'32px'}>
+                <VStack gap={'8px'} alignItems={{ base:'center', md:'start' }}
+                        alignSelf={{ base:'center', md:'start' }}>
+
+                    <Text as={'h6'}>
+                        Bigger team.
+                    </Text>
+
+                    <Text as={'h6'} color={'#818CF8'}>
+                        More time.
+                    </Text>
+
+                </VStack>
+
+                <Text maxInlineSize={'600'} display={{ base: 'none', lg:'block' }}>
+                    Quam quis orci turpis vulputate platea. Urna ipsum suscipit nullam
+                    ipsum nam leo fringilla eget lorem. Sit vestibulum phasellus integer
+                    et et diam malesuada. Sed tortor orci mauris proin ac. Venenatis
+                    euismod mauris quis sit purus nisi. Sed quis eget augue ut aliquam sed.
+                </Text>
+
+                <Text textAlign={'center'} display={{ base: 'block', lg:'none' }}>
+                    Malesuada ut aliquam at ac est nisi, interdum etiam dignissim.
+                </Text>
+            </VStack>
+
+            <VStack gap={{ base:'16px', lg:'24px' }}>
+                {/* All Components Image */}
+                <HStack pl={{ md:'48px' }} gap={{ base:'16px', lg:'24px' }}>
+                    <ChakraImageSSR
+                        src={'/svg/TeamSvg1.svg'}
+                        alt={'Image Team 1'}
+                        width={{ base:152.5, md:264 }}
+                        height={{ base:112, md:192 }}
+                    />
+                    <ChakraImageSSR
+                        src={'/img/TeamPicture2.png'}
+                        alt={'Image Team 2'}
+                        width={{ base:172.5, md:240 }}
+                        height={{ base:112, md:192 }}
+                    />
+                </HStack>
+                <HStack pr={{ md:'48px' }}  gap={{ base:'16px', md:'24px'}}>
+                    <ChakraImageSSR
+                        src={'/svg/TeamSvg2.svg'}
+                        alt={'Image Team 3'}
+                        width={{ base:123, md:207 }}
+                        height={{ base:112, md:192 }}
+                    />
+                    <ChakraImageSSR
+                        src={'/img/TeamPicture4.png'}
+                        alt={'Image Team 4'}
+                        width={{ base:187, md:345 }}
+                        height={{ base:112, md:192 }}
+                    />
+                </HStack>
+            </VStack>
+        </Box>
+
+        {/*<DesktopPresentationView/>*/}
+        <Box as={'section'} flexDirection={'column'}>
+            <VStack sx={{
+                pt: { base:'48px', lg:'80px' },
+                pb: { base: '90px', md:'240px', lg: '387px' },
+                left: '0px',
+                w: '100vw',
+                pos: 'absolute',
+                bg: '#4F46E5',
+            }}>
+                <Text as={'h6'} textAlign={'center'}>
+                    Diam quam tortor eget id. <Text as={'br'} display={'block'}/>
+                    Aliquet lacus volutpat tristique <br/> sed diam.
+                </Text>
+            </VStack>
+
+            <Stack alignSelf={'center'} zIndex={'1'} mt={{ base:'160px', md:'265px' }}>
+                {/* Desktop View */}
+                <ChakraImageSSR
+                    display={{ base: 'none', md: 'flex' }}
+                    src={'/img/Desktop.png'}
+                    alt={'Desktop Image'}
+                    width={1280}
+                    height={838}
+                />
+
+                {/* Mobil View */}
+                <ChakraImageSSR
+                    display={{ md:'none' }}
+                    src={'/img/DesktopMobil.png'}
+                    alt={'Desktop Image'}
+                    width={345}
+                    height={255}
+                />
+            </Stack>
+        </Box>
+
+        {/* PowerfulTools View */}
+        <Box as={'section'} flexDirection={{ base: 'column-reverse', md: 'row' }} justifyContent={'center'}>
+            <VStack gap={{ base:'16px', md:'24px' }} align={'start'}>
+                <Stack>
+                    <ChakraImageSSR
+                        src={'/svg/ToolsSvg1.svg'}
+                        alt={'Team Image 4'}
+                        width={{ base: 275, md: 425 }}
+                        height={{ base: 183, md: 288 }}
+                    />
+                </Stack>
+
+                <HStack gap={{ base:'16px', md:'24px' }}>
+                    <ChakraImageSSR
+                        src={'/svg/ToolsSvg2.svg'}
+                        alt={'Team Image 2'}
+                        width={{ base: 172, md: 288 }}
+                        height={{ base: 172, md: 288 }}
+                    />
+                    <ChakraImageSSR
+                        src={'/img/ToolsSvg3.png'}
+                        alt={'Team Image 3'}
+                        width={{ base: 172, md: 288 }}
+                        height={{ base: 172, md: 288 }}
+                    />
+                </HStack>
+            </VStack>
+
+            <ArticleInfo article={ articleTools }/>
+        </Box>
+
+        {/*<TeamManagementView/>*/}
+        <Box as={'section'} justifyContent={'center'}>
+            <ArticleInfo article={ articleManagement }/>
+
+            <Stack p={'0px'}>
+                <ChakraImageSSR
+                    src={'/svg/TeamManagement.svg'}
+                    alt={'Image'}
+                    width={{ base:'360px', lg:'590px' }}
+                    height={{ base:'342px', lg:'555px' }}
+                />
+            </Stack>
+        </Box>
 
         {/* Graph View */}
-         {/* <HStack as={'section'} sx={{
-             gap: { base: '32px', lg:'80px' },
-             px: { base:'16px', lg:'80px' },
-             py: { base:'24px', lg:'80px' },
-             justifyContent:'center'
-         }}>
-            <Stack
-                sx={{
-                    py: { lg:'64px' },
-                    pt: { base: '24px' },
-                    px: { lg:'64px' },
+        <Box as={'section'} justifyContent={'center'}>
+            <Stack as={'article'} sx={{
+                    py: { md:'64px' },
+                    px: { md:'64px' },
+                    pt: '24px',
+                    align:'center',
                     borderRadius: '20px',
-                    border: '1px solid #475569'
-                }}
-                align={'center'}
-                direction={{ base: 'column', md: 'row' }}
-            >
-                <VStack h={'max'} gap={{ base:'48px', lg:'32px' }} px={{ base:'16px', lg:'0px' }} alignItems={'start'}>
-                    <Heading as={'h5'} sx={{
-                        fontSize: { base:'18px', lg: '32px' },
-                        fontWeight: { base:'500', lg:'700' },
-                        lineHeight: { base:'19.8px', lg:'35.2px' },
-                        maxInlineSize: '600',
-                        color: '#ffffff'
-                    }}>
+                    border: '1px solid #475569',
+                    flexDirection: { base: 'column', md: 'row' },
+                }}>
+                <VStack h={'max'} alignItems={'start'} sx={{
+                    px:{ base:'16px', md:'0px' },
+                    gap:{ base:'48px', lg:'32px' },
+                }}>
+                    <Text as={'h5'} variant={'h5v1'}>
                         Ultrices risus, sagittis, ullamcorper gravida aliquam auctor.
-                    </Heading>
+                    </Text>
 
-                    <Text sx={{
-                        fontSize: { base:'16px', lg: '18px' },
-                        fontWeight: '400',
-                        lineHeight: { base:'22.4px', lg:'28.8px' },
-                        maxInlineSize: '600',
-                        color: '#CBD5E1'
-                    }}>
-                        Risus sit suscipit et nibh. Morbi pretium volutpat eget habitasse habitant elementum dignissim arcu mauris. Ullamcorper euismod id commodo mi nec. Sit egestas mauris imperdiet feugiat eros, sapien at pellentesque.
+                    <Text maxInlineSize={'600'}>
+                        Risus sit suscipit et nibh. Morbi pretium volutpat eget habitasse
+                        habitant elementum dignissim arcu mauris. Ullamcorper euismod id
+                        commodo mi nec. Sit egestas mauris imperdiet feugiat eros, sapien
+                        at pellentesque.
                     </Text>
 
                     <ButtonNav
-                        label={'Request more info'}
-                        href={'/info'}
-                        size={'lg'}
-                        variant={'filled'}
-                        sx={{
-                            w: '256px',
-                            fontWeight: '500',
-                            fontSize: '20px',
-                            bg: '#334155',
-                            color: 'white',
-                            border: '1px solid #475569'
-                        }}
+                        label={'Request more info'} href={'/info'}
+                        bg={'#334155'} border={'1px solid #475569'}
                     />
                 </VStack>
 
+                {/* Component responsible for creating the table */}
                 <GraphTable/>
             </Stack>
-        </HStack> */}
+        </Box>
 
-        {/* Control Flow View */}
-        {/*<Stack as={'section'} bg={'#1E293B'} gap={'80px'} pt={'80px'} pl={'80px'} pr={{ xl: '80px' }} justify={'center'} direction={{ base: 'column', md: 'row' }}>*/}
-        {/*    <VStack gap={'32px'} alignItems={'start'} alignSelf={'center'}>*/}
-        {/*        <Stack gap={'8px'}>*/}
-        {/*            <Heading as={'h3'} sx={{*/}
-        {/*                    fontSize: '48px',*/}
-        {/*                    fontWeight: '800',*/}
-        {/*                    lineHeight: '52.8px',*/}
-        {/*                    color: '#ffffff',*/}
-        {/*                }}>*/}
-        {/*                Control the flow.*/}
-        {/*            </Heading>*/}
-        {/*            <Heading as={'h3'} sx={{*/}
-        {/*                    fontSize: '48px',*/}
-        {/*                    fontWeight: '800',*/}
-        {/*                    lineHeight: '52.8px',*/}
-        {/*                    color: '#818CF8',*/}
-        {/*                }}>*/}
-        {/*                Work faster.*/}
-        {/*            </Heading>*/}
-        {/*        </Stack>*/}
+         {/*Control Flow View*/}
+        <Box as={'section'} bg={'#1E293B'} sx={{
+             justifyContent:{ md:'end', '2xl':'center' },
+             px:{ base:'0px', '2xl': '80px' },
+             pb:'0px',
+        }}>
+            <ArticleInfo article={articleControl}/>
 
-        {/*        <Text sx={{*/}
-        {/*            fontSize: '18px',*/}
-        {/*            fontWeight: '400',*/}
-        {/*            lineHeight: '28.8px',*/}
-        {/*            maxInlineSize: '500',*/}
-        {/*            color: '#ffffff',*/}
-        {/*        }}>*/}
-        {/*            Scelerisque auctor dolor diam tortor, fames faucibus non interdum nunc. Ultrices nibh sapien elit gravida ac, rutrum molestie adipiscing lacinia.*/}
-        {/*        </Text>*/}
-
-        {/*        <ButtonNav*/}
-        {/*            label={'Start for free'}*/}
-        {/*            href={'/start'}*/}
-        {/*            size={'lg'}*/}
-        {/*            variant={'filled'}*/}
-        {/*            sx={{*/}
-        {/*                w: '256px',*/}
-        {/*                fontWeight: '500',*/}
-        {/*                fontSize: '20px',*/}
-        {/*                bg: '#4F46E5',*/}
-        {/*                color: 'white',*/}
-        {/*                border: '1px solid ##6366F1'*/}
-        {/*            }}*/}
-        {/*        />*/}
-        {/*    </VStack>*/}
-
-        {/*    <Stack justifySelf={'end'} alignSelf={'end'} borderTopRightRadius={{ xl: '24px' }}>*/}
-        {/*        <Image className={'repare'} src={'/svg/ControlFlow.svg'} alt={'Control Image'} width={680} height={480} />*/}
-        {/*    </Stack>*/}
-        {/*</Stack>*/}
+            <ChakraImageSSR
+                src={'/svg/ControlFlow.svg'}
+                alt={'Control Image'}
+                width={{ base: '388px', lg: '680px' }}
+                height={{ base: '266px', lg: '480px' }}
+            />
+        </Box>
 
         {/* List Card View: Response fetch the api JsonPlaceHolder */}
-        {/* <PostsView /> */}
+        <PostsView />
 
         {/* Descriptions View, this contains two buttons */}
-        {/*<DescriptionView pb={'160px'}>*/}
-        {/*    <ButtonGroup gap={'16px'}>*/}
-        {/*        <ButtonNav*/}
-        {/*            label={'Start for free'}*/}
-        {/*            href={'/start'}*/}
-        {/*            size={'lg'}*/}
-        {/*            variant={'filled'}*/}
-        {/*            sx={{*/}
-        {/*                w: '256px',*/}
-        {/*                fontWeight: '500',*/}
-        {/*                fontSize: '20px',*/}
-        {/*                bg: '#4F46E5',*/}
-        {/*                color: 'white',*/}
-        {/*                border: '1px solid ##6366F1'*/}
-        {/*            }}*/}
-        {/*        />*/}
-
-        {/*        <ButtonNav*/}
-        {/*            label={'Request more info'}*/}
-        {/*            href={'/info'}*/}
-        {/*            size={'lg'}*/}
-        {/*            variant={'filled'}*/}
-        {/*            sx={{*/}
-        {/*                w: '256px',*/}
-        {/*                fontWeight: '500',*/}
-        {/*                fontSize: '20px',*/}
-        {/*                bg: '#334155',*/}
-        {/*                color: 'white',*/}
-        {/*                border: '1px solid #475569'*/}
-        {/*            }}*/}
-        {/*        />*/}
-        {/*    </ButtonGroup>*/}
-        {/*</DescriptionView>*/}
+        <DescriptionView pb={{ lg:'160px' }} pt={{ base:'0px', lg:'80px'}}>
+            <ButtonGroup gap={'16px'}>
+                <ButtonNav
+                    label={'Start for free'} href={'/start'}
+                    bg={'#4F46E5'} border={'1px solid #6366F1'}
+                />
+                <ButtonNav
+                    label={'Request more info'} href={'/info'}
+                    bg={'#334155'} border={'1px solid #475569'}
+                />
+            </ButtonGroup>
+        </DescriptionView>
     </>
   );
 }

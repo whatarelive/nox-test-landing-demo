@@ -1,14 +1,16 @@
 import React from "react";
 import { Text, VStack } from "@chakra-ui/react";
+import { MediaSizes } from "@/lib/interfaces/definitions";
 
 interface Props {
     readonly children?: React.ReactNode;
-    pb?: string | number;
+    pb?: MediaSizes | string | number;
+    pt?: MediaSizes | string | number;
 }
 
-export function DescriptionView({ children, pb }: Props) {
+export function DescriptionView({ children, pb, pt }: Props) {
     return (
-        <VStack as={'section'} pb={pb}>
+        <VStack as={'section'} pb={pb} pt={pt} gap={'32px'}>
             <VStack as={'article'} gap={'32px'}>
                 <VStack gap={'8px'}>
                     <Text as={'h2'}>

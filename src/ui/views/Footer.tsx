@@ -10,42 +10,24 @@ import {
     Badge, Stack,
 } from "@chakra-ui/react";
 import { FaArrowRight, FaFacebookF, FaYoutube, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { ChakraLinkNav, ChakraImageSSR } from "@/ui/components";
 import { footerLinks } from "@/ui/data/ArraysElementUi";
-import Image from "next/image";
-
-const areasBase = '"Categories Product Solutions Resources Support Company"'
-const areasMd = '"Categories Product" "Solutions Resources" "Support Company"'
-
-const linkStyle = {
-    fontSize: '16px',
-    fontWeight: '500',
-    letterSpacing: '1px',
-    lineHeight: '22.6px',
-    color: '#E2E8F0'
-}
 
 export function Footer() {
     return (
-        <Box bg={'#334155'} px={'80px'}>
+        <Box bg={'#334155'} px={{ base:'16px',  md:'80px' }}>
             <Grid
                 py={'48px'}
-                gap={'48px'}
+                gap={{ base:'12px', lg:'48px' }}
                 alignItems="center"
                 justifyContent="center"
-                gridTemplateAreas={{ base:areasBase, md:areasMd, lg:areasBase }}
-                gridTemplateColumns={{ base: '1fr', md: 'repeat(3, 1fr)', lg: 'repeat(6, 1fr)' }}
+                templateColumns={{ base:'1fr', md: 'repeat(3, 1fr)', lg: 'repeat(6, 1fr)' }}
             >
                 {
                     footerLinks.map((link) => (
-                      <GridItem key={link.name} area={link.name} gap={'12px'}>
+                      <GridItem key={link.name} gap={'12px'}>
                           <Box pt={'12px'}>
-                              <Text sx={{
-                                  fontSize: '16px',
-                                  fontWeight: '700',
-                                  letterSpacing: '1.5px',
-                                  lineHeight: '22.6px',
-                                  color: '#ffffff'
-                              }}>
+                              <Text as={'h4'} variant={'h4v2'} fontWeight={'700'} letterSpacing={'1.5px'}>
                                   { link.name }
                               </Text>
                           </Box>
@@ -59,7 +41,7 @@ export function Footer() {
                                             flexDirection: 'row',
                                             alignItems: 'center',
                                             gap: '8px',
-                                            ...linkStyle
+                                            color: '#CBD5E0'
                                         }}>
                                         { href }
                                         { link.icon === href && <FaArrowRight width={'24px'}/> }
@@ -73,42 +55,19 @@ export function Footer() {
                     ))
                 }
             </Grid>
-            <Stack py={'24px'} gap={'32px'} direction={{ base: 'column', lg: 'row', }} align={'center'} justify={'space-between'}>
-                <Text sx={{
-                    fontSize: '16px',
-                    fontWeight: '400',
-                    lineHeight: '22.4px',
-                    color: '#E2E8F0'
-                }}>
-                    Trakor @ 2023
-                </Text>
+            <Stack
+                py={'24px'} gap={{ base:'16px', lg:'32px' }}
+                direction={{ base: 'column', lg: 'row', }}
+                alignItems={{ base: 'flex-start', lg:'center'}}
+                justify={'space-between'}
+            >
+                <Text>Trakor @ 2023</Text>
 
-                <HStack gap={'32px'}>
-                    <ChakraLink
-                        as={Link}
-                        href={'/terms-of-service'}
-                        sx={linkStyle}
-                        _hover={{ textDecoration: 'none' }}
-                    >
-                        Terms of Service
-                    </ChakraLink>
-                    <ChakraLink
-                        as={Link}
-                        href={'/privacy-policy'}
-                        sx={linkStyle}
-                        _hover={{ textDecoration: 'none' }}
-                    >
-                        Privacy Policy
-                    </ChakraLink>
-                    <ChakraLink
-                        as={Link}
-                        href={'/manage-cookies'}
-                        sx={linkStyle}
-                        _hover={{ textDecoration: 'none' }}
-                    >
-                        Manage Cookies
-                    </ChakraLink>
-                </HStack>
+                <Stack direction={'row'} gap={{ base:'24px', lg:'32px' }}>
+                    <ChakraLinkNav name={'Terms of Service'} href={'/terms-of-service'} variant={'linkv2'}/>
+                    <ChakraLinkNav name={'Privacy Police'} href={'/privacy-police'} variant={'linkv2'}/>
+                    <ChakraLinkNav name={'Manage Cookies'} href={'/manage-cookies'} variant={'linkv2'}/>
+                </Stack>
 
                 <HStack gap={'16px'}>
                     <FaYoutube width={'24px'} height={'24px'} color={'white'} />
@@ -119,12 +78,21 @@ export function Footer() {
                 </HStack>
 
                 <HStack gap={'16px'}>
-                    <ChakraLink as={Link} href={'https://www.apple.com/es/app-store/'} target={'_blank'}>
-                        <Image src={'/svg/appStore.svg'} alt={'Icon of App Store'} width={100} height={50} />
-                    </ChakraLink>
-                    <ChakraLink as={Link} href={'https://play.google.com/store/'} target={'_blank'}>
-                        <Image src={'/svg/googlePlay.svg'} alt={'Icon of Google Play'} width={100} height={50} />
-                    </ChakraLink>
+                    <ChakraLinkNav href={'https://www.apple.com/es/app-store/'} target={'_blank'}>
+                        <ChakraImageSSR
+                            src={'/svg/appStore.svg'}
+                            alt={'Icon of App Store'}
+                            width={'100px'}
+                            height={'50px'}
+                        />
+                    </ChakraLinkNav>
+                    <ChakraLinkNav href={'https://play.google.com/store/'} target={'_blank'}>
+                        <ChakraImageSSR
+                            src={'/svg/googlePlay.svg'} alt={'Icon of Google Play'}
+                            width={'100px'}
+                            height={'50px'}
+                        />
+                    </ChakraLinkNav>
                 </HStack>
             </Stack>
         </Box>

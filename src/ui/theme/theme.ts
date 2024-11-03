@@ -2,9 +2,9 @@ import { extendTheme, ThemeConfig, defineStyle, defineStyleConfig } from "@chakr
 
 // Heading Styles
 const h4v1 = defineStyle({
-    fontSize: { base: '18px', md: '24px' },
-    fontWeight: { base: '500', md: '700' },
-    lineHeight: { base: '19.8px', md: '26.4px' },
+    fontSize: { base: '18px', xl: '24px' },
+    fontWeight: { base: '500', xl: '700' },
+    lineHeight: { base: '19.8px', xl: '26.4px' },
     color: '#CBD5E1'
 })
 const h4v2 = defineStyle({
@@ -13,8 +13,15 @@ const h4v2 = defineStyle({
     lineHeight: '17.6px',
     color: 'primary.white'
 })
+const h5v1 = defineStyle({
+    fontSize: { base: '18px', xl: '32px' },
+    fontWeight: { base: '500', xl: '700' },
+    lineHeight: { base: '19.8px', xl: '35.2px' },
+    maxInlineSize: { base: '400', xl: '600' },
+    color: '#ffffff'
+})
 const headingTheme = defineStyleConfig({
-    variants: { h4v1, h4v2 }
+    variants: { h4v1, h4v2, h5v1 }
 })
 //---------------------------------------------
 // Links Styles
@@ -25,13 +32,27 @@ const linkv1 = defineStyle({
     letterSpacing: '0.5px',
     color: 'white'
 })
+const linkv2 = defineStyle({
+    fontSize: { base:'14px', md:'16px' },
+    fontWeight: '400',
+    lineHeight: { base: '19.6px', md: '22.4px' },
+    color: 'white'
+})
 const linkTheme = defineStyleConfig({
-    variants: { linkv1 }
+    variants: { linkv1, linkv2 }
 })
 //---------------------------------------------
-// Stack Styles
 
 export const theme: ThemeConfig = extendTheme({
+    breakpoints: {
+        base: "0px",
+        xs: "300px",   // Muy Pequeño
+        sm: "394",     // Pequeño
+        md: "768px",   // Mediano
+        lg: "960px",   // Grande
+        xl: "1200px",  // Extra grande
+        "2xl": "1536px" // Dos veces extra grande
+    },
     colors: {
         primary: {
             white: '#ffffff',
@@ -52,9 +73,9 @@ export const theme: ThemeConfig = extendTheme({
             header: {
                 display: 'flex',
                 alignItems: 'center',
-                px: { base: '16px', lg:'80px' },
-                py: { base: '16px', lg:'24px' },
-                justifyContent: { base: 'space-between', lg: 'flex-start' }
+                px: { base: '16px', xl:'80px' },
+                py: { base: '16px', xl:'24px' },
+                justifyContent: { base: 'space-between', xl: 'flex-start' }
             },
             nav: {
                 flex: '2',
@@ -62,34 +83,34 @@ export const theme: ThemeConfig = extendTheme({
                 justifyContent: 'center',
             },
             section: {
-                py: { base: '48px', md: '80px' },
-                px: { base: '16px', md: '80px' },
-                gap: { base: '32px', md: '80px' },
+                py: { base: '48px', xl: '80px' },
+                px: { base: '16px', xl: '80px' },
+                gap: { base: '32px', xl: '80px' },
                 display: 'flex',
                 alignItems: 'center',
-                flexDirection:{ base: 'column', md: 'row' },
+                flexDirection:{ base: 'column', xl:'row' },
             },
             article: {
                 justifyContent: 'center',
                 alignItems: 'center'
             },
             h1: {
-                fontSize: { base: '48px', md: '72px' },
+                fontSize: { base: '48px', xl: '72px' },
                 fontWeight: '900',
-                lineHeight: { base: '52.8px', md: '79.2px' },
+                lineHeight: { base: '52.8px', xl: '79.2px' },
                 textAlign:'center',
                 color: '#ffffff'   
             },
             h2: {
-                fontSize: { base: '24px', md:'56px' },
-                fontWeight: { base: '700', md:'900' },
-                lineHeight: { base:'26.4px', md:'61.6px'},
+                fontSize: { base: '24px', xl:'56px' },
+                fontWeight: { base: '700', xl:'900' },
+                lineHeight: { base:'26.4px', xl:'61.6px'},
                 color: 'primary.white'
             },
             'h3, h6': {
-                fontSize: { base: '24px', md: '48px' },
-                fontWeight: { base: '700', md: '900' },
-                lineHeight: { base: '26.4px', md: '52.8px' },
+                fontSize: { base: '24px', xl: '48px' },
+                fontWeight: { base: '700', xl: '900' },
+                lineHeight: { base: '26.4px', xl: '52.8px' },
                 color: 'primary.white'  
             },
             h5: {
@@ -99,15 +120,15 @@ export const theme: ThemeConfig = extendTheme({
                 color: 'primary.white'    
             },
             p: {
-                fontSize: { base: '16px', md: '18px' },
+                fontSize: { base: '16px', xl: '18px' },
                 fontWeight: '400',
-                lineHeight: { base: '22.4px', md: '28.8px' },
+                lineHeight: { base: '22.4px', xl: '28.8px' },
                 color: 'primary.gray'       
             },
             a: {
-                fontSize: { base: '14px', md: '16px' },
+                fontSize: { base: '14px', xl: '16px' },
                 fontWeight: '400',
-                lineHeight: { base: '19.6px', md: '22.4px' }
+                lineHeight: { base: '19.6px', xl: '22.4px' },
             },
             span: {
                 fontSize: '20px',
@@ -117,7 +138,7 @@ export const theme: ThemeConfig = extendTheme({
                 color: 'primary.indigo'
             },
             br: {
-                display: { md: 'none' }
+                display: { xl: 'none' }
             }
         }
     },

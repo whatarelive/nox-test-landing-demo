@@ -1,3 +1,11 @@
+export type MediaSizes = {
+    base?: string | number;
+    sm?: string | number;
+    md?: string | number;
+    lg?: string | number;
+    xl?: string | number;
+}
+
 export interface Route {
     name: string;
     href: string;
@@ -16,7 +24,6 @@ export interface FooterLink {
     readonly badge?: 'Accessibility'
     readonly icon?: 'Request Demo'
 }
-
 
 export interface Post {
     userId: number;
