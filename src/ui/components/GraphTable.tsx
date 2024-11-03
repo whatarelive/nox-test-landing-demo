@@ -41,8 +41,8 @@ const data = {
 
 export function GraphTable() {
     // Using useBreakpointValue to resize the chart based on the breakpoint
-    const chartHeight = useBreakpointValue({ sm: '200px', md: '300px' });
-    const chartWidth = useBreakpointValue({ sm: '360px', md: '600px' });
+    const chartHeight = useBreakpointValue({ sm: '200px', md: '300px', lg: '300px' });
+    const chartWidth = useBreakpointValue({ sm: '360px', md: '600px', lg: '500px' });
 
     return (
         <Box width={chartWidth} height={chartHeight}>

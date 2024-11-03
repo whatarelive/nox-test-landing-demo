@@ -1,18 +1,17 @@
-import { ButtonGroup, HStack, Text} from "@chakra-ui/react";
-import { ButtonNav, ButtonDrawer } from "@/ui/components";
-import { ChakraLinkNav } from "../components/ChakraLinkNav";
+import { ButtonGroup, HStack, Text } from "@chakra-ui/react";
+import { ButtonNav, ButtonDrawer, ChakraLinkNav } from "@/ui/components";
 import { routes } from "@/ui/routes/routes";
 
 export function NavBar() {
     return (
         <>
             {/* Page Title Component -> All */}
-            <HStack flex="1">
+            <HStack flex={{base: '0', lg: '1'}}>
                 <Text as={'h5'}> trakor </Text>
             </HStack>
 
             {/* Nav links Component -> Table and Desktop */}
-            <HStack as={'nav'} display={{ base: 'none', md: 'flex' }}>
+            <HStack as={'nav'} gap={'16px'} display={{ base: 'none', lg: 'flex' }}>
                 {
                     routes.map(({ name, href }) => (
                         <ChakraLinkNav key={name} name={name} href={href} variant={'linkv1'}/>

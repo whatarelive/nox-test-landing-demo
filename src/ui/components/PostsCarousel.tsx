@@ -25,7 +25,7 @@ const options = {
             slidesPerView: 1,
         },
         768:{
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: '18px',
             pagination: {
                 clickable: true
